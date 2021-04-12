@@ -82,14 +82,17 @@ function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
   let errorEl = document.querySelector(".form .error");
+  let confirmEl = document.querySelector(".form .confirm");
 
   // validate form
   if (nameEl.value === "" || amountEl.value === "") {
     errorEl.textContent = "Missing Information";
+    confirmEl.textContent = "";
     return;
   }
   else {
     errorEl.textContent = "";
+    confirmEl.textContent = "Transaction submitted!";
   }
 
   // create record
@@ -121,7 +124,7 @@ function sendTransaction(isAdding) {
       "Content-Type": "application/json"
     }
   })
-  .then(response => {    
+  .then(response => {  
     return response.json();
   })
   .then(data => {
@@ -132,6 +135,7 @@ function sendTransaction(isAdding) {
       // clear form
       nameEl.value = "";
       amountEl.value = "";
+      confirmEl.textContent = "Transaction submitted!";
     }
   })
   .catch(err => {
