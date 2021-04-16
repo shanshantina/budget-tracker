@@ -92,7 +92,7 @@ function sendTransaction(isAdding) {
   }
   else {
     errorEl.textContent = "";
-    confirmEl.textContent = "Transaction submitted!";
+    confirmEl.textContent = "Transaction Saved!";
   }
 
   // create record
@@ -135,7 +135,7 @@ function sendTransaction(isAdding) {
       // clear form
       nameEl.value = "";
       amountEl.value = "";
-      confirmEl.textContent = "Transaction submitted!";
+      confirmEl.textContent = "Transaction Saved!";
     }
   })
   .catch(err => {
